@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Esquadrias de Alumínio Fogaça - Serralheria moderna: portões, grades, esquadrias e estruturas metálicas sob medida." />
+  <meta name="theme-color" content="#1c1f22" />
+  <title>Esquadrias de Alumínio Fogaça | Serralheria Moderna</title>
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // Tons de grafite
+            grafite: {
+              50: '#f3f4f5',
+              100: '#e1e3e5',
+              200: '#c3c7cb',
+              300: '#9aa0a6',
+              400: '#6b727a',
+              500: '#4a5159',
+              600: '#3a4047',
+              700: '#2b3036',
+              800: '#22262a',
+              900: '#1c1f22',
+              950: '#121416',
+            },
+            // Vermelho industrial (destaque principal)
+            industrial: {
+              400: '#e0574d',
+              500: '#c8281e',
+              600: '#a91f17',
+              700: '#8a1912',
+            },
+            // Azul aço (destaque secundário)
+            aco: {
+              300: '#8fb4cf',
+              400: '#6a9cbd',
+              500: '#4682a9',
+              600: '#366a8d',
+            },
+          },
+          fontFamily: {
+            display: ['Oswald', 'sans-serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Estilos complementares -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-grafite-50 font-sans text-grafite-800 antialiased">
+
+  <!-- ===================== HEADER ===================== -->
+  <header id="site-header" class="sticky top-0 z-50 border-b-4 border-industrial-500 bg-grafite-900 text-white shadow-lg">
+    <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-3" aria-label="Esquadrias de Alumínio Fogaça - Página inicial">
+        <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded bg-industrial-500">
+          <!-- Ícone de esquadria -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="1" />
+            <path d="M12 3v18M3 12h18" />
+          </svg>
+        </span>
+        <span class="font-display text-3xl font-bold uppercase leading-none tracking-widest">
+          EAF
+        </span>
+      </a>
+
+      <!-- Navegação desktop -->
+      <nav class="hidden md:block" aria-label="Navegação principal">
+        <ul class="flex items-center gap-8 font-display text-sm font-medium uppercase tracking-wider">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#produtos" class="nav-link">Produtos</a></li>
+          <li><a href="#sobre" class="nav-link">Sobre Nós</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- Ações: Carrinho + menu mobile -->
+      <div class="flex items-center gap-2">
+        <button
+          id="cart-button"
+          type="button"
+          class="relative flex items-center gap-2 rounded bg-grafite-700 px-3 py-2 font-display text-sm font-medium uppercase tracking-wider transition hover:bg-aco-500"
+          aria-label="Abrir carrinho. Itens no carrinho: 0"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6" />
+          </svg>
+          <span class="hidden sm:inline">Carrinho</span>
+          <span
+            id="cart-count"
+            class="flex h-6 min-w-[1.5rem] items-center justify-center rounded-full bg-industrial-500 px-1.5 text-xs font-bold text-white"
+            aria-live="polite"
+          >0</span>
+        </button>
+
+        <!-- Botão hambúrguer (mobile) -->
+        <button
+          id="menu-toggle"
+          type="button"
+          class="rounded p-2 transition hover:bg-grafite-700 md:hidden"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          aria-label="Abrir menu"
+        >
+          <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="hidden h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <nav id="mobile-menu" class="hidden border-t border-grafite-700 bg-grafite-800 md:hidden" aria-label="Navegação mobile">
+      <ul class="flex flex-col px-4 py-2 font-display text-base font-medium uppercase tracking-wider">
+        <li><a href="#home" class="block border-b border-grafite-700 py-3 hover:text-aco-300">Home</a></li>
+        <li><a href="#produtos" class="block border-b border-grafite-700 py-3 hover:text-aco-300">Produtos</a></li>
+        <li><a href="#sobre" class="block border-b border-grafite-700 py-3 hover:text-aco-300">Sobre Nós</a></li>
+        <li><a href="#contato" class="block py-3 hover:text-aco-300">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===================== CONTEÚDO ===================== -->
+  <main>
+
+    <!-- Hero -->
+    <section
+      id="home"
+      class="relative isolate flex min-h-[calc(100vh-5rem)] scroll-mt-20 items-center overflow-hidden bg-grafite-950 text-white"
+    >
+      <!-- Imagem de fundo: soldagem / serralheria (Unsplash) -->
+      <img
+        src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80"
+        alt="Serralheiro soldando uma estrutura metálica com faíscas"
+        class="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+        fetchpriority="high"
+      />
+      <!-- Camada escura em degradê para garantir a leitura do texto -->
+      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-grafite-950/95 via-grafite-900/80 to-grafite-900/30" aria-hidden="true"></div>
+      <!-- Textura de metal escovado sutil -->
+      <div class="bg-metal-texture absolute inset-0 -z-10" aria-hidden="true"></div>
+
+      <div class="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+        <p class="mb-4 inline-block border-l-4 border-industrial-500 pl-3 font-display text-sm uppercase tracking-[0.3em] text-aco-300">
+          Serralheria Moderna
+        </p>
+
+        <h1 class="max-w-3xl font-display text-4xl font-bold uppercase leading-tight sm:text-5xl lg:text-7xl">
+          Soluções em <span class="text-industrial-400">Esquadrias de Alumínio</span>
+        </h1>
+
+        <p class="mt-6 max-w-xl text-base text-grafite-100 sm:text-lg">
+          Janelas, portas, portões e guarda-corpos sob medida, com projeto, fabricação e instalação
+          próprios. Acabamento de precisão, durabilidade e design moderno para sua casa ou empresa.
+        </p>
+
+        <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+          <a
+            href="#produtos"
+            class="inline-flex items-center justify-center gap-2 rounded bg-industrial-500 px-8 py-4 font-display text-sm font-semibold uppercase tracking-wider text-white transition hover:bg-industrial-600"
+          >
+            Ver Catálogo
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+
+          <!-- Troque o número (DDI + DDD + telefone, só dígitos) pelo WhatsApp real da empresa -->
+          <a
+            id="whatsapp-cta"
+            href="https://wa.me/5500000000000?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20esquadrias%20de%20alum%C3%ADnio."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 rounded border-2 border-aco-400 bg-grafite-900/40 px-8 py-4 font-display text-sm font-semibold uppercase tracking-wider text-white backdrop-blur-sm transition hover:border-aco-500 hover:bg-aco-500"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2a9.93 9.93 0 0 0-8.5 15.07L2 22l5.07-1.5A9.94 9.94 0 1 0 12.04 2Zm5.8 14.1c-.25.7-1.45 1.34-2 1.4-.52.06-1.18.09-1.9-.12a17.5 17.5 0 0 1-1.72-.64c-3.03-1.31-5-4.37-5.16-4.57-.15-.2-1.24-1.65-1.24-3.15s.78-2.23 1.06-2.53c.27-.3.6-.38.8-.38l.57.01c.19 0 .43-.07.67.51.25.6.84 2.07.92 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.3.77 1.27 1.65 2.05 1.13 1.01 2.09 1.32 2.39 1.47.3.15.47.12.65-.07.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.73.82 2.03.97.3.15.5.22.57.35.07.12.07.72-.18 1.42Z" />
+            </svg>
+            Solicitar Orçamento no WhatsApp
+          </a>
+        </div>
+
+        <!-- Destaques -->
+        <ul class="mt-14 flex flex-wrap gap-x-10 gap-y-4 font-display text-sm uppercase tracking-wider text-grafite-200">
+          <li class="flex items-center gap-2"><span class="h-2 w-2 bg-industrial-500"></span>Sob medida</li>
+          <li class="flex items-center gap-2"><span class="h-2 w-2 bg-industrial-500"></span>Instalação profissional</li>
+          <li class="flex items-center gap-2"><span class="h-2 w-2 bg-industrial-500"></span>Acabamento de precisão</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Diferenciais -->
+    <section id="diferenciais" class="scroll-mt-20 bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <p class="font-display text-sm uppercase tracking-[0.3em] text-aco-500">Por que escolher a EAF</p>
+        <h2 class="section-title mt-2 font-display text-3xl font-bold uppercase text-grafite-900">Nossos Diferenciais</h2>
+
+        <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+
+          <article class="group rounded border border-grafite-100 bg-grafite-50 p-6 transition hover:-translate-y-1 hover:border-industrial-500 hover:shadow-lg">
+            <span class="flex h-14 w-14 items-center justify-center rounded bg-grafite-900 text-white transition group-hover:bg-industrial-500">
+              <i data-lucide="factory" class="h-7 w-7" aria-hidden="true"></i>
+            </span>
+            <h3 class="mt-5 font-display text-xl font-semibold uppercase text-grafite-900">Fabricação Própria</h3>
+            <p class="mt-2 text-sm text-grafite-500">Produzimos cada peça em nossa oficina, com controle total de qualidade e medidas exatas para o seu projeto.</p>
+          </article>
+
+          <article class="group rounded border border-grafite-100 bg-grafite-50 p-6 transition hover:-translate-y-1 hover:border-industrial-500 hover:shadow-lg">
+            <span class="flex h-14 w-14 items-center justify-center rounded bg-grafite-900 text-white transition group-hover:bg-industrial-500">
+              <i data-lucide="shield-check" class="h-7 w-7" aria-hidden="true"></i>
+            </span>
+            <h3 class="mt-5 font-display text-xl font-semibold uppercase text-grafite-900">Alta Durabilidade</h3>
+            <p class="mt-2 text-sm text-grafite-500">Alumínio de qualidade e acabamento resistente à corrosão, ao sol e à chuva, para durar por muitos anos.</p>
+          </article>
+
+          <article class="group rounded border border-grafite-100 bg-grafite-50 p-6 transition hover:-translate-y-1 hover:border-industrial-500 hover:shadow-lg">
+            <span class="flex h-14 w-14 items-center justify-center rounded bg-grafite-900 text-white transition group-hover:bg-industrial-500">
+              <i data-lucide="truck" class="h-7 w-7" aria-hidden="true"></i>
+            </span>
+            <h3 class="mt-5 font-display text-xl font-semibold uppercase text-grafite-900">Entrega e Instalação</h3>
+            <p class="mt-2 text-sm text-grafite-500">Levamos até você e instalamos com equipe especializada, no prazo combinado e sem dor de cabeça.</p>
+          </article>
+
+          <article class="group rounded border border-grafite-100 bg-grafite-50 p-6 transition hover:-translate-y-1 hover:border-industrial-500 hover:shadow-lg">
+            <span class="flex h-14 w-14 items-center justify-center rounded bg-grafite-900 text-white transition group-hover:bg-industrial-500">
+              <i data-lucide="clipboard-check" class="h-7 w-7" aria-hidden="true"></i>
+            </span>
+            <h3 class="mt-5 font-display text-xl font-semibold uppercase text-grafite-900">Orçamento Sem Compromisso</h3>
+            <p class="mt-2 text-sm text-grafite-500">Receba uma proposta detalhada e transparente, sem custo e sem obrigação de fechar negócio.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Nosso Catálogo (renderizado dinamicamente pelo script.js) -->
+    <section id="catalogo" class="scroll-mt-20 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <h2 class="section-title font-display text-3xl font-bold uppercase text-grafite-900">Nosso Catálogo</h2>
+
+      <!-- Filtros por categoria -->
+      <div class="mt-10 flex flex-wrap gap-3 justify-center" role="radiogroup" aria-label="Filtrar produtos por categoria">
+        <button type="button" class="filter-btn active px-4 py-2 rounded bg-grafite-100 text-grafite-700 font-medium text-sm transition hover:bg-industrial-500 hover:text-white" data-categoria="todos" aria-pressed="true">Todos</button>
+        <button type="button" class="filter-btn px-4 py-2 rounded bg-grafite-100 text-grafite-700 font-medium text-sm transition hover:bg-industrial-500 hover:text-white" data-categoria="Portões" aria-pressed="false">Portões</button>
+        <button type="button" class="filter-btn px-4 py-2 rounded bg-grafite-100 text-grafite-700 font-medium text-sm transition hover:bg-industrial-500 hover:text-white" data-categoria="Grades" aria-pressed="false">Grades</button>
+        <button type="button" class="filter-btn px-4 py-2 rounded bg-grafite-100 text-grafite-700 font-medium text-sm transition hover:bg-industrial-500 hover:text-white" data-categoria="Escadas" aria-pressed="false">Escadas</button>
+      </div>
+
+      <!-- Container dos cards (preenchido pelo JS) -->
+      <div id="catalogo-grid" class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section id="sobre" class="scroll-mt-20 bg-grafite-100 py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-12">
+          <h2 class="section-title font-display text-3xl font-bold uppercase text-grafite-900">Sobre Nós</h2>
+          <p class="mt-4 text-lg text-grafite-600 max-w-2xl">
+            A Esquadrias de Alumínio Fogaça une tradição em serralheria e tecnologia moderna para entregar projetos duráveis, seguros e com acabamento impecável.
+          </p>
+        </div>
+
+        <!-- Destaques: experiência, qualidade, pontualidade -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div class="bg-white p-8 rounded-xl shadow-sm border border-grafite-100 text-center hover:shadow-md transition">
+            <div class="mb-4 w-12 h-12 rounded bg-industrial-500 flex items-center justify-center mx-auto">
+              <span class="text-white text-xl font-bold">15+</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-grafite-900 mb-2">Anos de Experiência</h3>
+            <p class="text-grafite-600 text-sm leading-relaxed">
+              Mais de 15 anos no mercado de esquadrias de alumínio, atendendo residências e comércios com excelência.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 rounded-xl shadow-sm border border-grafite-100 text-center hover:shadow-md transition">
+            <div class="mb-4 w-12 h-12 rounded bg-industrial-500 flex items-center justify-center mx-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            </div>
+            <h3 class="font-display text-xl font-bold text-grafite-900 mb-2">Qualidade do Acabamento</h3>
+            <p class="text-grafite-600 text-sm leading-relaxed">
+              Acabamento impecável em alumínio com pintura eletrostática, vidros temperados e ferragens de primeira linha.
+            </p>
+          </div>
+
+          <div class="bg-white p-8 rounded-xl shadow-sm border border-grafite-100 text-center hover:shadow-md transition">
+            <div class="mb-4 w-12 h-12 rounded bg-industrial-500 flex items-center justify-center mx-auto">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            </div>
+            <h3 class="font-display text-xl font-bold text-grafite-900 mb-2">Pontualidade na Entrega</h3>
+            <p class="text-grafite-600 text-sm leading-relaxed">
+              Compromisso com prazos acordados. Sua obra não pode esperar, e nós entregamos no dia combinado.
+            </p>
+          </div>
+        </div>
+
+        <!-- Depoimentos -->
+        <div class="text-center mb-8">
+          <h3 class="font-display text-2xl font-bold uppercase text-grafite-900 mb-8">O que nossos clientes dizem</h3>
+        </div>
+
+        <div id="depoimentos-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch"></div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato" class="scroll-mt-20 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <h2 class="section-title font-display text-3xl font-bold uppercase text-grafite-900">Contato</h2>
+      <p class="mt-8 max-w-2xl text-grafite-600">
+        Fale conosco e solicite seu orçamento. (Conteúdo de exemplo — adicione telefone, e-mail e endereço.)
+      </p>
+    </section>
+
+    <!-- Modal Detalhes do Produto -->
+    <div id="modal-detalhes" class="fixed inset-0 z-[60] hidden" aria-labelledby="modal-titulo" aria-modal="true" role="dialog">
+      <!-- Backdrop -->
+      <div
+        id="modal-backdrop"
+        class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity opacity-0"
+        aria-hidden="true"
+      ></div>
+
+      <!-- Container do modal -->
+      <div
+        id="modal-container"
+        class="absolute inset-0 z-10 flex items-center justify-center p-4 sm:p-6 opacity-0 translate-y-4 transition-all duration-200"
+      >
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col sm:flex-row overflow-hidden transform scale-95 transition-transform duration-200">
+          <!-- Imagem ampliada -->
+          <div class="w-full sm:w-1/2 h-64 sm:h-auto bg-grafite-100 flex items-center justify-center relative shrink-0">
+            <img
+              id="modal-imagem"
+              src=""
+              alt=""
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Conteúdo textual -->
+          <div class="p-6 sm:p-8 flex flex-col justify-between overflow-y-auto">
+            <div>
+              <button
+                type="button"
+                id="modal-fechar"
+                class="absolute top-4 right-4 z-20 rounded-full bg-grafite-900 text-white w-9 h-9 flex items-center justify-center hover:bg-industrial-500 transition"
+                aria-label="Fechar modal"
+              >
+                <span class="text-[20px] leading-none">×</span>
+              </button>
+
+              <h3 id="modal-titulo" class="font-display text-2xl sm:text-3xl font-bold uppercase text-grafite-900 mb-2"></h3>
+              <p id="modal-categoria" class="text-grafite-500 text-sm uppercase font-medium mb-4"></p>
+              <p id="modal-preco" class="text-grafite-800 font-display text-lg font-semibold mb-6"></p>
+
+              <div class="mb-6">
+                <p class="font-medium text-grafite-700 mb-2">Descrição completa</p>
+                <p id="modal-descricao" class="text-grafite-600 leading-relaxed text-sm sm:text-base"></p>
+              </div>
+
+              <!-- Formulário: quantidade e medidas -->
+              <div class="space-y-4">
+                <div>
+                  <label for="modal-quantidade" class="block text-sm font-medium text-grafite-700 mb-1">Quantidade</label>
+                  <input
+                    type="number"
+                    id="modal-quantidade"
+                    value="1"
+                    min="1"
+                    max="99"
+                    class="w-24 rounded border border-grafite-200 px-3 py-2 text-grafite-900 focus:ring-2 focus:ring-industrial-500 outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label for="modal-medidas" class="block text-sm font-medium text-grafite-700 mb-1">Medidas aproximadas (ex: 2,00m × 1,20m)</label>
+                  <input
+                    type="text"
+                    id="modal-medidas"
+                    placeholder="Largura × Altura"
+                    class="w-full rounded border border-grafite-200 px-3 py-2 text-grafite-900 focus:ring-2 focus:ring-industrial-500 outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 sm:mt-0 border-t sm:border-t-0 sm:border-l border-grafite-100 pt-8 sm:pt-0 sm:pl-8 flex flex-col sm:flex-row gap-4 justify-end">
+              <button
+                type="button"
+                id="modal-cancelar"
+                class="w-full sm:w-auto rounded border border-grafite-300 py-3 font-display text-sm uppercase tracking-wider text-grafite-700 transition hover:bg-grafite-100"
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                id="modal-adicionar"
+                class="w-full sm:w-auto rounded bg-industrial-500 py-3 font-display text-sm uppercase tracking-wider text-white transition hover:bg-industrial-600 flex items-center justify-center gap-2"
+              >
+                <span>Adicionar ao carrinho</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Rodapé Completo -->
+  <footer class="bg-grafite-950 border-t-4 border-industrial-500 text-grafite-300">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Linha superior: logo + redes sociais -->
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-10">
+        <div class="flex items-center gap-3">
+          <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-industrial-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="1" />
+              <path d="M12 3v18M3 12h18" />
+            </svg>
+          </span>
+          <span class="font-display text-2xl font-bold uppercase text-white leading-none tracking-widest">EAF</span>
+        </div>
+
+        <!-- Redes sociais -->
+        <div class="flex items-center gap-4">
+          <a href="https://instagram.com/esquadriasfogaca" target="_blank" rel="noopener noreferrer" class="text-grafite-400 hover:text-white transition" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="12.5" x2="17.51" y2="12.5"/></svg>
+          </a>
+          <a href="https://facebook.com/esquadriasfogaca" target="_blank" rel="noopener noreferrer" class="text-grafite-400 hover:text-white transition" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="text-white bg-green-500 hover:bg-green-600 p-2 rounded-md transition" aria-label="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12c0-4.9-3.88-8.88-8.66-9.68a10 10 0 0 0-3.16-.92C11.68 1.26 8.08 4 5.12 6.72A10 10 0 0 0 2 12c0 4.88 3.88 8.88 8.66 9.68a10 10 0 0 0 3.16.92c4.74 0 8.66-2.74 8.66-8.68 0-.47-.04-.93-.11-1.4z"/><path d="M12 19l3-3-3-3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Colunas de informação -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+
+        <!-- Coluna 1: Endereço e horário -->
+        <div>
+          <h4 class="font-display text-lg font-bold text-white mb-4">Endereço e Horário</h4>
+          <p class="text-sm text-grafite-400 mb-2 flex items-start gap-2">
+            <span class="mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </span>
+            Rua das Esquadrias, 450 - Vila Industrial<br />
+            São Paulo - SP, CEP 05000-000
+          </p>
+          <p class="text-sm text-grafite-400 mb-2 flex items-start gap-2">
+            <span class="mt-0.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </span>
+            Segunda a Sexta: 8h às 18h<br />
+            Sábado: 8h às 12h
+          </p>
+          <p class="text-sm text-grafite-400 flex items-start gap-2">
+            <a href="https://maps.google.com/?q=Rua+das+Esquadrias,+450,+Sao+Paulo+-+SP" target="_blank" rel="noopener noreferrer" class="text-industrial-400 hover:text-industrial-300 underline underline-offset-2 transition">
+              Ver no Google Maps →
+            </a>
+          </p>
+        </div>
+
+        <!-- Coluna 2: Contato -->
+        <div>
+          <h4 class="font-display text-lg font-bold text-white mb-4">Entre em Contato</h4>
+          <p class="text-sm text-grafite-400 mb-2 flex items-center gap-2">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 011 1v5h1a1 1 0 011 1v5a1 1 0 01-1 1H5a1 1 0 01-1-1V5a1 1 0 011-1h3.28a1 1 0 011-1H3z"/></svg>
+            </span>
+            <a href="tel:+5511999999999" class="text-white hover:text-industrial-400 transition">(11) 99999-9999</a>
+          </p>
+          <p class="text-sm text-grafite-400 mb-2 flex items-center gap-2">
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22-2L11 8a6 6 0 016-6z"/><path fill="#000" fill-opacity=".5" d="M15 3h-2a3 3 0 00-3 3v2a3 3 0 003 3z"/></svg>
+            </span>
+            <a href="mailto:contato@esquadriasfogaca.com.br" class="text-white hover:text-industrial-400 transition">contato@esquadriasfogaca.com.br</a>
+          </p>
+          <p class="text-sm text-grafite-400 flex items-center gap-2">
+            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="text-white hover:text-green-400 transition flex items-center gap-1">
+              <span class="text-green-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M22 12c0-4.9-3.88-8.88-8.66-9.68a10 10 0 0 0-3.16-.92C11.68 1.26 8.08 4 5.12 6.72A10 10 0 0 0 2 12c0 4.88 3.88 8.88 8.66 9.68a10 10 0 0 0 3.16.92c4.74 0 8.66-2.74 8.66-8.68 0-.47-.04-.93-.11-1.4z"/></svg>
+              </span>
+              WhatsApp
+            </a>
+          </p>
+        </div>
+
+        <!-- Coluna 3: Formulário de contato rápido -->
+        <div>
+          <h4 class="font-display text-lg font-bold text-white mb-4">Envie uma Mensagem</h4>
+          <form id="form-contato-rapido" class="space-y-3" onsubmit="return enviarContatoRapido(event)">
+            <div>
+              <label class="block text-xs font-medium text-grafite-400 mb-1 uppercase">Seu Nome</label>
+              <input type="text" name="nome" required class="w-full rounded border border-grafite-700 bg-grafite-900 px-3 py-2 text-white focus:border-industrial-500 focus:outline-none focus:ring-1 focus:ring-industrial-500 text-sm" placeholder="João Silva" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-grafite-400 mb-1 uppercase">Seu E-mail</label>
+              <input type="email" name="email" required class="w-full rounded border border-grafite-700 bg-grafite-900 px-3 py-2 text-white focus:border-industrial-500 focus:outline-none focus:ring-1 focus:ring-industrial-500 text-sm" placeholder="joao@email.com" />
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-grafite-400 mb-1 uppercase">Mensagem</label>
+              <textarea name="mensagem" rows="3" required class="w-full rounded border border-grafite-700 bg-grafite-900 px-3 py-2 text-white focus:border-industrial-500 focus:outline-none focus:ring-1 focus:ring-industrial-500 text-sm" placeholder="Quero solicitar um orçamento..."></textarea>
+            </div>
+            <button type="submit" class="w-full rounded bg-industrial-500 py-2 font-display text-sm uppercase tracking-wider text-white transition hover:bg-industrial-600">
+              Enviar Mensagem
+            </button>
+          </form>
+          <div id="msg-sucesso-contato" class="hidden mt-3 p-3 rounded bg-green-900/20 border border-green-500/30 text-green-400 text-xs">
+            Mensagem enviada com sucesso! Entraremos em contato em breve.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Linha inferior: copyright -->
+      <div class="border-t border-grafite-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-xs text-grafite-500">
+          &copy; <span id="current-year"></span> Esquadrias de Alumínio Fogaça. Todos os direitos reservados.
+        </p>
+        <p class="text-xs text-grafite-500">
+          Desenvolvido com <span class="text-industrial-500">♥</span> para sua serralheria de confiança.
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- Gaveta do Carrinho -->
+  <div id="carrinho-drawer" class="fixed inset-0 z-[70] hidden" aria-label="Carrinho de compras" role="dialog" aria-modal="true">
+    <!-- Backdrop -->
+    <div
+      id="carrinho-backdrop"
+      class="absolute inset-0 bg-black/40 transition-opacity duration-300 opacity-0"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Painel lateral -->
+    <div
+      id="carrinho-painel"
+      class="absolute right-0 top-0 h-full w-full sm:w-[420px] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col"
+    >
+      <!-- Cabeçalho -->
+      <div class="flex items-center justify-between p-6 border-b border-grafite-100">
+        <h2 class="font-display text-xl font-bold uppercase text-grafite-900">Carrinho</h2>
+        <button
+          id="carrinho-fechar"
+          type="button"
+          class="rounded-full bg-grafite-100 text-grafite-700 w-8 h-8 flex items-center justify-center hover:bg-grafite-200 transition"
+          aria-label="Fechar carrinho"
+        >
+          <span class="text-[20px] leading-none">×</span>
+        </button>
+      </div>
+
+      <!-- Conteúdo -->
+      <div id="carrinho-conteudo" class="flex-1 overflow-y-auto p-6">
+        <!-- Estado vazio -->
+        <div id="carrinho-vazio" class="hidden flex flex-col items-center justify-center py-20 text-center">
+          <p class="text-grafite-500 mb-2">Seu carrinho está vazio.</p>
+          <p class="text-sm text-grafite-400">Adicione produtos para começar seu orçamento.</p>
+        </div>
+
+        <!-- Lista de itens -->
+        <div id="carrinho-itens" class="space-y-4"></div>
+      </div>
+
+      <!-- Rodapé com total -->
+      <div id="carrinho-rodape" class="hidden p-6 border-t border-grafite-100 bg-grafite-50">
+        <div class="flex justify-between mb-4">
+          <span class="font-display text-lg font-bold text-grafite-900">Total</span>
+          <span id="carrinho-total" class="font-display text-lg font-bold text-industrial-500">R$ 0,00</span>
+        </div>
+        <button
+          id="carrinho-limpar"
+          type="button"
+          class="w-full rounded border border-grafite-300 py-3 font-display text-sm uppercase tracking-wider text-grafite-700 transition hover:bg-grafite-100 mb-3"
+        >
+          Limpar carrinho
+        </button>
+        <button
+          id="carrinho-finalizar"
+          type="button"
+          class="w-full rounded bg-industrial-500 py-3 font-display text-sm uppercase tracking-wider text-white transition hover:bg-industrial-600 flex items-center justify-center gap-2"
+        >
+          <span>Finalizar Pedido via WhatsApp</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lucide Icons via CDN (deve carregar antes do script.js) -->
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
